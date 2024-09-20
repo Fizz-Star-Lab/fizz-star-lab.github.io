@@ -1,4 +1,4 @@
-#Updated 13th June
+#Updated 20th September
 #Appodeal
 appodeal.com, 187964, DIRECT
 #BidMachine
@@ -9,7 +9,8 @@ google.com, Publisher_ID, DIRECT, f08c47fec0942fa0
 #Meta-Audience
 #Replace the Business_ID below with your Meta Business ID
 facebook.com,Business_ID,RESELLER,c3e20eee3f780d68 
-#Add other networks if applicable
+#Added_Strings
+yandex.com, 302446435, DIRECT
 #Resellers
 9dotsmedia.com,122262,RESELLER,45ff185b4c4e857d
 acexchange.co.kr,1562884725,RESELLER
@@ -48,7 +49,6 @@ axonix.com,57716,RESELLER,bc385f2b4a87b721
 betweendigital.com,43651,RESELLER
 betweendigital.com,43871,RESELLER
 betweendigital.com,44229,RESELLER
-bigo.sg,1203,RESELLER
 blis.com,33,RESELLER,61453ae19a4b73f4
 contextweb.com,562499,RESELLER,89ff185a4c4e857c
 contextweb.com,562757,RESELLER,89ff185a4c4e857c
@@ -286,3 +286,6 @@ yeahmobi.com,5135082,RESELLER
 yeahmobi.com,5135195,RESELLER
 yeahmobi.com,5135347,RESELLER
 yieldlab.net,2172218,RESELLER
+bigo.sg,1112518,reseller
+yandex.com,302446435,reseller
+applovin.com,a97e4a2a60836795b8e1433cefd17f30,RESELLER
