@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Page</title>
+    <style>
+        @font-face {
+            font-family: 'RetroGaming';
+            src: url('Retro Gaming.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'RetroGaming', sans-serif;
+            line-height: 1.6;
+        }
+        .header {
+            background: #0e061f;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        .logo {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .description, .carousel, .fanart, .more-apps {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .description {
+            background-color: #14163e;
+            color: #dce3f5;
+        }
+        .description h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: #ffd700;
+        }
+        .description p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .highlight {
+            font-weight: 600;
+            color: #ffd700;
+        }
+        .mission {
+            margin-top: 40px;
+            font-size: 1.5em;
+            font-style: italic;
+            color: #f1c40f;
+        }
+        .principles-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .principle {
+            max-width: 300px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 5px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        .carousel {
+            background-color: #1f2350;
+            color: white;
+        }
+        .carousel-container {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .footer {
+            background: #0e1230;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        .app-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin-right: 20px;
+        }
+        .app-header h2 {
+            margin: 0;
+            font-size: 2em;
+            color: white;
+        }
+        .fanart-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            justify-content: center;
+        }
+        .fanart-gallery a {
+            display: block;
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            background-size: cover;
+            background-position: center;
+        }
+        .fanart {
+            background-color: #1a1d45;
+            color: #dce3f5;
+        }
+        .fanart-gallery h2 {
+            color: #ffd700;
+            margin-bottom: 30px;
+        }
+        .more-apps {
+            background-color: #121530;
+            color: #dce3f5;
+        }
+        .more-apps h2 {
+            color: #ffd700;
+            margin-bottom: 30px;
+        }
+        .more-apps-item {
+            background-color: rgba(255, 215, 0, 0.05);
+            border: 1px solid #ffd700;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .more-apps-item p {
+            color: #f1f1f1;
+        }
+        .more-apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            justify-content: center;
+        }
+        .more-apps-item img {
+            width: 100%;
+            max-width: 120px;
+            height: auto;
+            border-radius: 15px;
+        }
+        .store-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .store-buttons a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1em;
+            color: white;
+            background: linear-gradient(145deg, #1f2350, #292e63);
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .store-buttons a:hover {
+            background: #ffd700;
+            color: #121530;
+            transform: translateY(-3px);
+        }
+        .store-links img {
+            width: 30px;
+            margin: 5px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .store-links a:hover img {
+            opacity: 1;
+        }
+        .footer-content a {
+            color: #1abc9c;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-content a:hover {
+            color: white;
+        }
+        .footer-links {
+            margin: 10px 0;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">My Logo</div>
+    </header>
+
+    <section class="description">
+        <h1>Welcome to Fizz Star Lab!</h1>
+        <p>We believe <span class="highlight">products</span> can tell stories, evoke emotions, and push the limits of creativity. Our work merges <span class="highlight">art</span> and <span class="highlight">innovation</span> to craft digital experiences that <span class="highlight">leave a mark</span>.</p>
+        
+        <div class="mission">
+            "Design isn't just what it looks like and feels like. Design is how it works."
+        </div>
+        
+        <div class="principles-list">
+            <div class="principle">
+                <strong>❤️ Designed to Connect</strong>
+                <p>We design experiences that stay with people long after the screen is off.</p>
+            </div>
+            <div class="principle">
+                <strong>🎨 Concept matters</strong>
+                <p>Every product is designed to delight the eye and engage the mind.</p>
+            </div>
+            <div class="principle">
+                <strong>✨ Simplicity Wins</strong>
+                <p>We strip away the unnecessary to make space for what truly matters.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="carousel">
+        <div class="app-header">
+            <img src="https://via.placeholder.com/100?text=App+Icon" alt="App Icon">
+            <h2>App Name</h2>
+        </div>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-item"><img src="https://via.placeholder.com/900x506?text=App+1" alt="App 1"></div>
+                <div class="carousel-item"><img src="https://via.placeholder.com/900x506?text=App+2" alt="App 2"></div>
+                <div class="carousel-item"><img src="https://via.placeholder.com/900x506?text=App+3" alt="App 3"></div>
+                <div class="carousel-item"><img src="https://via.placeholder.com/900x506?text=App+4" alt="App 4"></div>
+            </div>
+        </div>
+        <div class="store-buttons">
+            <a href="#" target="_blank">Download on App Store</a>
+            <a href="#" target="_blank">Get it on Google Play</a>
+            <a href="#" target="_blank">Available on Steam</a>
+        </div>
+    </section>
+
+    <section class="more-apps ">
+        <h2>More Apps</h2>
+        <div class="more-apps-grid">
+            <div class="more-apps-item">
+                <img src="https://via.placeholder.com/150" alt="App Icon">
+                <p>Cat Pat What</p>                    
+                <a href="#" target="_blank">🍎</a>
+                <a href="#" target="_blank">📱</a>
+            </div>
+            <div class="more-apps-item">
+                <img src="https://via.placeholder.com/150" alt="App Icon">
+                <p>Fizz WaterSort</p>                    
+                <a href="#" target="_blank">🍎</a>
+                <a href="#" target="_blank">📱</a>
+            </div>
+            <div class="more-apps-item">
+                <img src="https://via.placeholder.com/150" alt="App Icon">
+                <p>PotionCraft</p>                    
+                <a href="#" target="_blank">🍎</a>
+                <a href="#" target="_blank">📱</a>
+            </div>
+    </section>
+
+    <section class="fanart">
+        <h2>Fan Art</h2>
+        <div class="fanart-gallery">
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+            <a href="https://via.placeholder.com/1000" target="_blank" style="background-image: url('https://via.placeholder.com/1000');"></a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Konstantin Elizaroff. All rights reserved.</p>
+            <p>Contact: <a href="mailto:developer@example.com">lexustrue@gmail.com</a></p>
+            <div class="footer-links">
+                <a href="https://github.com/developer" target="_blank">GitHub</a> |
+                <a href="https://linkedin.com/in/developer" target="_blank">LinkedIn</a> |
+                <a href="https://twitter.com/developer" target="_blank">Twitter</a>
+                <a href="https://twitter.com/developer" target="_blank">Youtube</a>
+            </div>
+            <p>Developed by Developer Name</p>
+        </div>
+    </footer>
+    <script>
+        let index = 0;
+        const track = document.getElementById('carousel-track');
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+    
+        // Clone first and last slide
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone = slides[totalSlides - 1].cloneNode(true);
+    
+        track.appendChild(firstClone);
+        track.insertBefore(lastClone, slides[0]);
+    
+        const slideWidth = slides[0].clientWidth;
+    
+        // Установка стартовой позиции
+        track.style.transform = `translateX(-${slideWidth}px)`;
+    
+        setInterval(() => {
+            index++;
+            track.style.transition = 'transform 0.5s ease';
+            track.style.transform = `translateX(${-slideWidth * (index + 1)}px)`;
+    
+            track.addEventListener('transitionend', () => {
+                if (index >= totalSlides) {
+                    track.style.transition = 'none';
+                    index = 0;
+                    track.style.transform = `translateX(-${slideWidth}px)`;
+                }
+            });
+        }, 3000);
+    
+        // Resize для адаптации ширины
+        window.addEventListener('resize', () => {
+            const newSlideWidth = slides[0].clientWidth;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(${-newSlideWidth * (index + 1)}px)`;
+        });
+    </script>
+
+</body>
+
+</html>
