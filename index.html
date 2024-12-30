@@ -184,7 +184,7 @@
         }
         .store-buttons a {
             display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 10px;
             font-size: 1em;
             color: white;
             background: linear-gradient(145deg, #1f2350, #292e63);
@@ -219,7 +219,53 @@
             margin: 10px 0;
         }
 
-
+        /* Медиазапросы для мобильных устройств */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2em;
+    }
+    .description h1 {
+        font-size: 2em;
+    }
+    .description p {
+        font-size: 1em;
+    }
+    .app-header {
+        flex-direction: column;
+    }
+    .app-header img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 10px;
+    }
+    .carousel-item img {
+        border-radius: 10px;
+    }
+    .store-buttons {
+        flex-direction: column;
+        font-size: 0.7em;
+        gap: 15px;
+    }
+    .store-buttons a {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .fanart-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .fanart-gallery a {
+        height: 200px;
+    }
+    .more-apps-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .more-apps-item img {
+        max-width: 100px;
+    }
+    .more-apps-item p {
+        font-size: 0.7em;
+    }
+}
         
     </style>
 </head>
@@ -299,7 +345,7 @@
                 <p>PotionCraft</p>                    
                 <div class="store-buttons">
                     <a href="https://play.google.com/store/apps/details?id=com.FizzStarLab.PotionCraft&hl=en" target="_blank">📱 Google Play</a>
-                    <a href="https://apps.apple.com/us/app/word-mystery-cat-pat-what/id6717603714" target="_blank">🍎 App Store</a>
+                    <a href="https://apps.apple.com/tw/app/potion-sort-pixel-color-sort/id6737445364" target="_blank">🍎 App Store</a>
                 </div>
             </div>
     </section>
