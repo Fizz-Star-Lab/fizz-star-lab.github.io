@@ -1,0 +1,76 @@
+/* ── Music Label Section ── */
+.music {
+    padding: var(--section-padding);
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(123, 104, 238, 0.08) 0%, transparent 50%),
+        var(--bg-surface-1);
+}
+
+.music-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.music-intro {
+    font-size: 1em;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto 48px;
+    line-height: 1.8;
+}
+
+.music-platforms {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.music-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 28px;
+    background: var(--bg-surface-2);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.85em;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition-base), transform var(--transition-fast), background var(--transition-base);
+}
+
+.music-link:hover {
+    border-color: var(--accent-gold-border);
+    background: var(--accent-gold-dim);
+    transform: translateY(-2px);
+}
+
+.music-link svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-gold);
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .music {
+        padding: var(--section-padding-mobile);
+    }
+
+    .music-intro {
+        font-size: 0.85em;
+    }
+
+    .music-platforms {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .music-link {
+        width: 80%;
+        justify-content: center;
+    }
+}

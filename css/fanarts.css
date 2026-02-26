@@ -1,0 +1,48 @@
+/* ── FanArts Section ── */
+.fanarts {
+    padding: var(--section-padding);
+    background: var(--bg-surface-3);
+}
+
+.fanarts-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.fanarts-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.fanart-item {
+    display: block;
+    height: 260px;
+    border-radius: var(--radius-md);
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    overflow: hidden;
+}
+
+.fanart-item:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .fanarts {
+        padding: var(--section-padding-mobile);
+    }
+
+    .fanarts-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 8px;
+    }
+
+    .fanart-item {
+        height: 180px;
+    }
+}
