@@ -108,4 +108,12 @@
     .nav-list a {
         font-size: 1em;
     }
+
+}
+
+@media (max-width: 768px) {
+  .nav-list,
+  .nav-toggle {
+    display: none !important;
+  }
 }
