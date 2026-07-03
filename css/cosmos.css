@@ -1,0 +1,209 @@
+/* ── Cosmic Background ── */
+#cosmic-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background: var(--bg-primary);
+}
+
+body {
+    background: transparent;
+}
+
+.header,
+main,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: calc(var(--stagger-i, 0) * 60ms);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Glow Spotlight Cards ── */
+.glow-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 215, 0, 0.3), transparent 72%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.glow-card:hover::before {
+    opacity: 1;
+}
+
+/* ── Hero Title Glow ── */
+.hero h1 {
+    text-shadow: 0 0 28px rgba(255, 215, 0, 0.45), 0 0 80px rgba(123, 104, 238, 0.35);
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 28px rgba(255, 215, 0, 0.45), 0 0 80px rgba(123, 104, 238, 0.35); }
+    50% { text-shadow: 0 0 42px rgba(255, 215, 0, 0.7), 0 0 110px rgba(123, 104, 238, 0.55); }
+}
+
+/* ── Flying Saucer ── */
+.ufo {
+    position: fixed;
+    top: 12vh;
+    left: -220px;
+    width: 130px;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    filter: drop-shadow(0 0 18px rgba(123, 104, 238, 0.45));
+}
+
+.ufo.flying-ltr {
+    animation: ufo-fly-ltr var(--ufo-duration, 22s) linear forwards;
+}
+
+.ufo.flying-rtl {
+    animation: ufo-fly-rtl var(--ufo-duration, 22s) linear forwards;
+}
+
+@keyframes ufo-fly-ltr {
+    0%   { left: -220px; opacity: 0; transform: translateY(0) rotate(-3deg); }
+    8%   { opacity: 0.95; }
+    25%  { transform: translateY(-18px) rotate(2deg); }
+    50%  { transform: translateY(10px) rotate(-2deg); }
+    75%  { transform: translateY(-12px) rotate(3deg); }
+    92%  { opacity: 0.95; }
+    100% { left: calc(100vw + 220px); opacity: 0; transform: translateY(0) rotate(-3deg); }
+}
+
+@keyframes ufo-fly-rtl {
+    0%   { left: calc(100vw + 220px); opacity: 0; transform: translateY(0) rotate(3deg) scaleX(-1); }
+    8%   { opacity: 0.95; }
+    25%  { transform: translateY(14px) rotate(-2deg) scaleX(-1); }
+    50%  { transform: translateY(-10px) rotate(2deg) scaleX(-1); }
+    75%  { transform: translateY(12px) rotate(-3deg) scaleX(-1); }
+    92%  { opacity: 0.95; }
+    100% { left: -220px; opacity: 0; transform: translateY(0) rotate(3deg) scaleX(-1); }
+}
+
+.ufo-light {
+    animation: ufo-blink 1s steps(2, start) infinite;
+}
+
+.ufo-light:nth-child(odd) {
+    animation-delay: 0.3s;
+}
+
+@keyframes ufo-blink {
+    50% { opacity: 0.2; }
+}
+
+/* ── Ringed Planets ── */
+.planet {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    animation: planet-float 13s ease-in-out infinite;
+}
+
+.planet-a {
+    top: -70px;
+    right: -70px;
+    width: 260px;
+    opacity: 0.55;
+    filter: drop-shadow(0 0 26px rgba(123, 104, 238, 0.35));
+    animation-duration: 14s;
+}
+
+.planet-b {
+    bottom: -50px;
+    left: -50px;
+    width: 170px;
+    opacity: 0.5;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+    animation-duration: 11s;
+    animation-delay: -4s;
+}
+
+@keyframes planet-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+.planet-a .planet-ring {
+    transform-origin: 100px 100px;
+    animation: planet-ring-spin-a 70s linear infinite;
+}
+
+.planet-b .planet-ring {
+    transform-origin: 70px 70px;
+    animation: planet-ring-spin-b 55s linear infinite;
+}
+
+@keyframes planet-ring-spin-a {
+    from { transform: rotate(-18deg); }
+    to { transform: rotate(342deg); }
+}
+
+@keyframes planet-ring-spin-b {
+    from { transform: rotate(14deg); }
+    to { transform: rotate(374deg); }
+}
+
+@media (max-width: 768px) {
+    .planet-a {
+        width: 170px;
+    }
+
+    .planet-b {
+        width: 120px;
+    }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hero h1 {
+        animation: none;
+    }
+
+    #cosmic-canvas {
+        display: none;
+    }
+
+    .ufo {
+        display: none;
+    }
+
+    .planet,
+    .planet-ring {
+        animation: none;
+    }
+}

@@ -1,7 +1,7 @@
 /* ── Footer ── */
 .footer {
     padding: 48px 24px;
-    background: var(--bg-primary);
+    background: var(--bg-primary-t);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     text-align: center;
 }

@@ -2,8 +2,8 @@
 .music {
     padding: var(--section-padding);
     background:
-        radial-gradient(ellipse at 20% 50%, rgba(123, 104, 238, 0.08) 0%, transparent 50%),
-        var(--bg-surface-1);
+        radial-gradient(ellipse at 20% 50%, rgba(123, 104, 238, 0.12) 0%, transparent 50%),
+        var(--bg-surface-1-t);
 }
 
 .music-inner {
@@ -32,13 +32,15 @@
     align-items: center;
     gap: 12px;
     padding: 16px 28px;
-    background: var(--bg-surface-2);
+    background: var(--bg-surface-2-t);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--radius-md);
     color: var(--text-primary);
     font-size: 0.85em;
     font-family: var(--font-primary);
     transition: border-color var(--transition-base), transform var(--transition-fast), background var(--transition-base);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .music-link:hover {

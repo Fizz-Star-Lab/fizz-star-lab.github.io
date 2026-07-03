@@ -1,12 +1,28 @@
 /* ── FanArts Section ── */
 .fanarts {
     padding: var(--section-padding);
-    background: var(--bg-surface-3);
+    background: var(--bg-surface-3-t);
 }
 
 .fanarts-inner {
     max-width: var(--max-width);
     margin: 0 auto;
+}
+
+.fanarts-devtools {
+    text-align: center;
+    margin: 0 auto 32px;
+}
+
+.fanarts-devtools .store-btn {
+    border: 1px dashed var(--accent-gold-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.75em;
+}
+
+.fanarts-devtools .store-btn:hover {
+    background: var(--accent-gold-dim);
 }
 
 .fanarts-gallery {

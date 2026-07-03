@@ -49,9 +49,12 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 10px;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .nav-toggle span {
@@ -111,9 +114,13 @@
 
 }
 
-@media (max-width: 768px) {
-  .nav-list,
-  .nav-toggle {
-    display: none !important;
-  }
+/* ── Small phones ── */
+@media (max-width: 380px) {
+    .header-inner {
+        padding: 0 16px;
+    }
+
+    .header-logo img {
+        height: 32px;
+    }
 }

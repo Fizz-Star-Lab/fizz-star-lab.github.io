@@ -1,7 +1,7 @@
 /* ── Creative Projects Section ── */
 .projects {
     padding: var(--section-padding);
-    background: var(--bg-surface-2);
+    background: var(--bg-surface-2-t);
 }
 
 .projects-inner {
@@ -16,11 +16,13 @@
 }
 
 .project-card {
-    background: var(--bg-surface-1);
+    background: var(--bg-surface-1-t);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-md);
     padding: 28px 24px;
     transition: transform var(--transition-base), box-shadow var(--transition-base);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .project-card:hover {

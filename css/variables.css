@@ -6,6 +6,12 @@
     --bg-surface-3: #1a1d45;
     --bg-surface-4: #1f2350;
 
+    /* Translucent surfaces (let the cosmic canvas show through) */
+    --bg-primary-t: rgba(8, 8, 15, 0.86);
+    --bg-surface-1-t: rgba(14, 18, 48, 0.82);
+    --bg-surface-2-t: rgba(20, 24, 56, 0.78);
+    --bg-surface-3-t: rgba(26, 29, 69, 0.75);
+
     /* Accent colors */
     --accent-gold: #ffd700;
     --accent-gold-dim: rgba(255, 215, 0, 0.1);

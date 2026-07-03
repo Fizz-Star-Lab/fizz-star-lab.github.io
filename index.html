@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fizz Star Lab</title>
+    <meta name="description" content="Fizz Star Lab — a creative lab fusing art, code, and strategy: games, digital music, and boundary-pushing projects.">
+    <meta name="theme-color" content="#08080f">
+    <link rel="icon" href="Logo.png">
+    <meta property="og:title" content="Fizz Star Lab">
+    <meta property="og:description" content="Want a miracle? Miracle it! A creative lab where ideas meet to create immersive, boundary-pushing experiences.">
+    <meta property="og:image" content="Logo.png">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
@@ -13,8 +20,76 @@
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/fanarts.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cosmos.css">
 </head>
 <body>
+
+    <canvas id="cosmic-canvas" aria-hidden="true"></canvas>
+
+    <svg id="ufo" class="ufo" viewBox="0 0 160 90" aria-hidden="true" focusable="false">
+        <defs>
+            <radialGradient id="ufoBeam" cx="50%" cy="0%" r="85%">
+                <stop offset="0%" stop-color="rgba(255,215,0,0.55)"/>
+                <stop offset="100%" stop-color="rgba(255,215,0,0)"/>
+            </radialGradient>
+            <linearGradient id="ufoBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e2e5f5"/>
+                <stop offset="55%" stop-color="#8d93c0"/>
+                <stop offset="100%" stop-color="#4d5188"/>
+            </linearGradient>
+            <radialGradient id="ufoDome" cx="35%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#f2feff"/>
+                <stop offset="60%" stop-color="#9be8ff"/>
+                <stop offset="100%" stop-color="#3aa0c9"/>
+            </radialGradient>
+        </defs>
+
+        <polygon points="80,40 42,88 118,88" fill="url(#ufoBeam)"/>
+
+        <ellipse cx="80" cy="55" rx="70" ry="16" fill="url(#ufoBody)"/>
+        <ellipse cx="80" cy="47" rx="34" ry="22" fill="url(#ufoDome)"/>
+        <ellipse cx="80" cy="55" rx="70" ry="16" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="2"/>
+
+        <circle class="ufo-light" cx="26" cy="57" r="3.2" fill="#ffd700"/>
+        <circle class="ufo-light" cx="53" cy="64" r="3.2" fill="#7b68ee"/>
+        <circle class="ufo-light" cx="80" cy="66" r="3.2" fill="#ffd700"/>
+        <circle class="ufo-light" cx="107" cy="64" r="3.2" fill="#7b68ee"/>
+        <circle class="ufo-light" cx="134" cy="57" r="3.2" fill="#ffd700"/>
+    </svg>
+
+    <svg id="planet-a" class="planet planet-a" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <defs>
+            <radialGradient id="planetABody" cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#d9d4ff"/>
+                <stop offset="45%" stop-color="#7b68ee"/>
+                <stop offset="100%" stop-color="#2a1f5c"/>
+            </radialGradient>
+            <linearGradient id="planetARing" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(255,215,0,0)"/>
+                <stop offset="50%" stop-color="rgba(255,215,0,0.9)"/>
+                <stop offset="100%" stop-color="rgba(255,215,0,0)"/>
+            </linearGradient>
+        </defs>
+        <ellipse class="planet-ring" cx="100" cy="100" rx="96" ry="24" fill="none" stroke="url(#planetARing)" stroke-width="8"/>
+        <circle cx="100" cy="100" r="54" fill="url(#planetABody)"/>
+    </svg>
+
+    <svg id="planet-b" class="planet planet-b" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
+        <defs>
+            <radialGradient id="planetBBody" cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#fff3c4"/>
+                <stop offset="45%" stop-color="#ffd700"/>
+                <stop offset="100%" stop-color="#8a6600"/>
+            </radialGradient>
+            <linearGradient id="planetBRing" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(180,160,255,0)"/>
+                <stop offset="50%" stop-color="rgba(180,160,255,0.85)"/>
+                <stop offset="100%" stop-color="rgba(180,160,255,0)"/>
+            </linearGradient>
+        </defs>
+        <ellipse class="planet-ring" cx="70" cy="70" rx="66" ry="16" fill="none" stroke="url(#planetBRing)" stroke-width="6"/>
+        <circle cx="70" cy="70" r="36" fill="url(#planetBBody)"/>
+    </svg>
 
     <!-- Header -->
     <header class="header">
@@ -153,22 +228,22 @@
 
                     <div class="project-card">
                         <div class="project-card-header">
-                            <h3>WallStreetCat Bot</h3>
-                            <span class="project-status in-progress">In Progress</span>
-                        </div>
-                        <p class="project-type">AI/ML & Algorithmic trading</p>
-                        <p class="project-description">An intelligent trading bot driven by advanced ML-based decision models.</p>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-header">
                             <h3>BRIX! Bricker 3D</h3>
                             <span class="project-status in-progress">In Progress</span>
                         </div>
                         <p class="project-type">Hybrid Game</p>
                         <p class="project-description">A design-driven brick game with carefully crafted, collectible creations — blending creativity, memes, and modern aesthetics.</p>
                     </div>
-                    
+
+                    <div class="project-card">
+                        <div class="project-card-header">
+                            <h3>WallStreetCat Bot</h3>
+                            <span class="project-status released">Released</span>
+                        </div>
+                        <p class="project-type">AI/ML & Algorithmic trading</p>
+                        <p class="project-description">An intelligent trading bot driven by advanced ML-based decision models.</p>
+                    </div>
+
                     <div class="project-card">
                         <div class="project-card-header">
                             <h3>Golden Soul</h3>
@@ -226,13 +301,12 @@
                 <h2 class="section-title">FanArts</h2>
                 <p class="section-subtitle">Community artwork inspired by the Fizz Star Lab universe.</p>
 
-                <div class="fanarts-gallery">
-                    <a class="fanart-item" href="https://sun9-3.userapi.com/impg/LIcZ_xhUK1RLuwK6n51hihM6Ym8Vli-o58EjXg/XHnXGgoMMvQ.jpg?size=1200x900&quality=95&sign=7dc73fd73625f7ef5d6a2180c856c551&type=album" target="_blank" style="background-image: url('https://sun9-3.userapi.com/impg/LIcZ_xhUK1RLuwK6n51hihM6Ym8Vli-o58EjXg/XHnXGgoMMvQ.jpg?size=1200x900&quality=95&sign=7dc73fd73625f7ef5d6a2180c856c551&type=album');"></a>
-                    <a class="fanart-item" href="https://sun9-42.userapi.com/impg/kZoBg6klr-T_ggzjTcEfGCCbeiqQTmY1WL7pPA/4pmVGqnohQM.jpg?size=2310x2089&quality=95&sign=94c31d6816f6ba90148e14ca97497483&type=album" target="_blank" style="background-image: url('https://sun9-42.userapi.com/impg/kZoBg6klr-T_ggzjTcEfGCCbeiqQTmY1WL7pPA/4pmVGqnohQM.jpg?size=2310x2089&quality=95&sign=94c31d6816f6ba90148e14ca97497483&type=album');"></a>
-                    <a class="fanart-item" href="https://sun9-12.userapi.com/impg/noQCPSrFU1rk3LI6xAHWDPI-fdjyCJKZRAa4Pw/2hn2hyOnXLQ.jpg?size=2000x2000&quality=95&sign=b56c45cd82ee08a0ca0370f7bd4aaa1b&type=album" target="_blank" style="background-image: url('https://sun9-12.userapi.com/impg/noQCPSrFU1rk3LI6xAHWDPI-fdjyCJKZRAa4Pw/2hn2hyOnXLQ.jpg?size=2000x2000&quality=95&sign=b56c45cd82ee08a0ca0370f7bd4aaa1b&type=album');"></a>
-                    <a class="fanart-item" href="https://sun9-33.userapi.com/impg/4_HtjVuROozF315S-kpJ8HZD0g_mN_OODdUMAw/SAgjqXfSR5c.jpg?size=1100x972&quality=95&sign=5cef702329b9f1414fb01515f1211ecf&type=album" target="_blank" style="background-image: url('https://sun9-33.userapi.com/impg/4_HtjVuROozF315S-kpJ8HZD0g_mN_OODdUMAw/SAgjqXfSR5c.jpg?size=1100x972&quality=95&sign=5cef702329b9f1414fb01515f1211ecf&type=album');"></a>
-                    <a class="fanart-item" href="https://sun9-52.userapi.com/impg/6lv_Lc7lC0j2rDnBBFuUXC4BcjANY05ywlDQdg/S_ZN0ACZfY8.jpg?size=2560x1829&quality=95&sign=84cb4042bf9d03442def148f65d06b5f&type=album" target="_blank" style="background-image: url('https://sun9-52.userapi.com/impg/6lv_Lc7lC0j2rDnBBFuUXC4BcjANY05ywlDQdg/S_ZN0ACZfY8.jpg?size=2560x1829&quality=95&sign=84cb4042bf9d03442def148f65d06b5f&type=album');"></a>
+                <div class="fanarts-devtools" id="fanarts-devtools" hidden>
+                    <button type="button" class="store-btn" id="fanarts-local-preview-btn">Preview local fanarts folder</button>
+                    <input type="file" id="fanarts-local-input" webkitdirectory directory multiple hidden>
                 </div>
+
+                <div class="fanarts-gallery" id="fanarts-gallery"></div>
             </div>
         </section>
 
@@ -259,6 +333,8 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/cosmos.js"></script>
+    <script src="js/fanarts.js"></script>
 
 </body>
 </html>
