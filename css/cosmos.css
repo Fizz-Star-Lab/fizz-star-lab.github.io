@@ -9,11 +9,17 @@
     background: var(--bg-primary);
 }
 
+html {
+    background: var(--bg-primary);
+}
+
 body {
     background: transparent;
 }
 
-.header,
+/* Note: .header already has its own position:sticky + z-index:100 from
+   header.css — leave it alone here so the mobile nav overlay (which lives
+   inside .header) keeps stacking above main's content. */
 main,
 .footer {
     position: relative;
