@@ -79,6 +79,50 @@ h1, h2, h3 {
     box-shadow: var(--shadow-card-hover);
 }
 
+/* ── Back to Top (mobile only) ── */
+.back-to-top {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 90;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--accent-gold-border);
+    background: rgba(8, 8, 15, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--accent-gold);
+    font-size: 1.3em;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        display: flex;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+        transition: none;
+    }
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
