@@ -1,41 +1,214 @@
-/* ── Games Section ── */
+/* ── Games Section ──
+   Layout: icon strip → flagship card (Golden Soul) → grid of app cards.
+   Every card gets a heavily blurred copy of its own screenshot as a
+   background, so each one has its own colour mood on a shared layout. */
 .games {
     padding: var(--section-padding);
     background: var(--bg-surface-3-t);
 }
 
-/* Featured Game */
-.featured-game {
+.games > * {
     max-width: var(--max-width);
-    margin: 0 auto 64px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.game-header {
+/* Icon strip */
+.games-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.games-strip a {
+    display: block;
+    border-radius: 14px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.games-strip img {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
+}
+
+.games-strip a:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 0 0 2px var(--accent-gold-border), 0 6px 20px rgba(255, 215, 0, 0.18);
+}
+
+/* App card (shared by flagship + grid) */
+.app-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--bg-surface-1-t);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+    scroll-margin-top: calc(var(--header-height) + 16px);
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.app-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold-border);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.app-card__bg {
+    position: absolute;
+    inset: -40px;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    filter: blur(60px) brightness(0.55) saturate(0.9);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.app-card__head {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 20px;
 }
 
-.game-header img {
-    width: 80px;
-    height: 80px;
-    border-radius: var(--radius-md);
+.app-card__icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    box-shadow: var(--shadow-card);
 }
 
-.game-header h2 {
-    font-size: 2em;
+.app-card__label {
+    font-size: 0.65em;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 4px;
+}
+
+.app-card__title {
+    font-size: 1.25em;
     color: var(--text-white);
-    margin: 0;
 }
 
-/* Carousel */
+.app-card__genre {
+    font-size: 0.72em;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Three portrait screenshots */
+.app-card__shots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.app-card__shots img {
+    width: 100%;
+    height: auto;          /* keep each store screenshot's own proportions — no cropping */
+    border-radius: 12px;
+    background: var(--bg-surface-2);
+    box-shadow: var(--shadow-card);
+}
+
+.app-card__tagline {
+    font-size: 0.95em;
+    line-height: 1.45;
+    color: var(--text-white);
+    margin-bottom: 10px;
+}
+
+.app-card__desc {
+    font-size: 0.78em;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.app-card__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+/* Store buttons */
+.store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 0.75em;
+    font-family: var(--font-primary);
+    color: var(--text-white);
+    background: rgba(8, 8, 15, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base), transform var(--transition-fast);
+}
+
+.store-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.store-btn:hover {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: var(--bg-surface-1);
+    transform: translateY(-3px);
+}
+
+/* Flagship card */
+.app-card--featured {
+    margin-bottom: 64px;
+    padding: 32px;
+    border-color: var(--accent-gold-border);
+}
+
+.app-card--featured .app-card__icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 18px;
+}
+
+.app-card--featured .app-card__title {
+    font-size: 2em;
+}
+
+.app-card__featured-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.app-card--featured .app-card__tagline {
+    font-size: 1.15em;
+}
+
+.app-card--featured .app-card__desc {
+    font-size: 0.85em;
+}
+
+/* Carousel (flagship screenshots) */
 .carousel-container {
     overflow: hidden;
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
 }
@@ -57,127 +230,81 @@
     display: block;
 }
 
-/* Store buttons */
-.store-buttons {
+/* Group header: title + counter */
+.games-group__head {
     display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 24px;
-    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
 }
 
-.store-btn {
-    display: inline-block;
-    padding: 12px 20px;
-    font-size: 0.85em;
-    font-family: var(--font-primary);
-    color: var(--text-white);
-    background: linear-gradient(145deg, var(--bg-surface-4), #292e63);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card);
-    transition: background var(--transition-base), transform var(--transition-fast);
-}
-
-.store-btn:hover {
-    background: var(--accent-gold);
-    color: var(--bg-surface-1);
-    transform: translateY(-3px);
-}
-
-/* More Games */
-.more-games {
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.more-games h2 {
-    text-align: center;
+.games-group__head h2 {
     font-size: 1.8em;
     color: var(--accent-gold);
-    margin-bottom: 32px;
+}
+
+.games-group__count {
+    font-size: 0.85em;
+    letter-spacing: 0.2em;
+    color: var(--text-secondary);
 }
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
 }
 
-.game-card {
-    background: var(--bg-surface-2-t);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    text-align: center;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-.game-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-card-hover);
-}
-
-.game-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: var(--radius-md);
-    margin: 0 auto 16px;
-}
-
-.game-card h3 {
-    font-size: 0.95em;
-    margin-bottom: 12px;
-}
-
-.game-card .store-buttons {
-    margin-top: 16px;
-    gap: 8px;
-}
-
-.game-card .store-btn {
-    font-size: 0.7em;
-    padding: 8px 12px;
-}
-
 /* ── Responsive ── */
+@media (max-width: 900px) {
+    .app-card__featured-body {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
 @media (max-width: 768px) {
     .games {
         padding: var(--section-padding-mobile);
     }
 
-    .game-header {
-        flex-direction: column;
-        gap: 12px;
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
-    .game-header img {
+    .games-strip {
+        gap: 8px;
+    }
+
+    .games-strip img {
+        width: 44px;
+        height: 44px;
+        border-radius: 11px;
+    }
+
+    .app-card,
+    .app-card--featured {
+        padding: 20px;
+    }
+
+    .app-card--featured .app-card__icon {
         width: 64px;
         height: 64px;
     }
 
-    .game-header h2 {
+    .app-card--featured .app-card__title {
         font-size: 1.5em;
     }
 
-    .store-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .store-btn {
-        width: 80%;
-        text-align: center;
-    }
-
-    .games-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 16px;
-    }
-
-    .game-card img {
-        width: 80px;
-        height: 80px;
+    .app-card__shots {
+        gap: 8px;
     }
 }
+
+/* Card status labels */
+.app-card__label--hit { color: #ff7a45; }
+.app-card__label--new { color: #4ce0b3; }
+.app-card__label--classic { color: var(--text-secondary); }

@@ -21,75 +21,15 @@
     <link rel="stylesheet" href="css/fanarts.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cosmos.css">
+    <link rel="stylesheet" href="css/monstera.css">
 </head>
 <body>
 
     <canvas id="cosmic-canvas" aria-hidden="true"></canvas>
+    <div class="monstera-layer" id="monstera-layer" aria-hidden="true"></div>
 
-    <svg id="ufo" class="ufo" viewBox="0 0 160 90" aria-hidden="true" focusable="false">
-        <defs>
-            <radialGradient id="ufoBeam" cx="50%" cy="0%" r="85%">
-                <stop offset="0%" stop-color="rgba(255,215,0,0.55)"/>
-                <stop offset="100%" stop-color="rgba(255,215,0,0)"/>
-            </radialGradient>
-            <linearGradient id="ufoBody" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#e2e5f5"/>
-                <stop offset="55%" stop-color="#8d93c0"/>
-                <stop offset="100%" stop-color="#4d5188"/>
-            </linearGradient>
-            <radialGradient id="ufoDome" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#f2feff"/>
-                <stop offset="60%" stop-color="#9be8ff"/>
-                <stop offset="100%" stop-color="#3aa0c9"/>
-            </radialGradient>
-        </defs>
 
-        <polygon points="80,40 42,88 118,88" fill="url(#ufoBeam)"/>
 
-        <ellipse cx="80" cy="55" rx="70" ry="16" fill="url(#ufoBody)"/>
-        <ellipse cx="80" cy="47" rx="34" ry="22" fill="url(#ufoDome)"/>
-        <ellipse cx="80" cy="55" rx="70" ry="16" fill="none" stroke="rgba(255,215,0,0.5)" stroke-width="2"/>
-
-        <circle class="ufo-light" cx="26" cy="57" r="3.2" fill="#ffd700"/>
-        <circle class="ufo-light" cx="53" cy="64" r="3.2" fill="#7b68ee"/>
-        <circle class="ufo-light" cx="80" cy="66" r="3.2" fill="#ffd700"/>
-        <circle class="ufo-light" cx="107" cy="64" r="3.2" fill="#7b68ee"/>
-        <circle class="ufo-light" cx="134" cy="57" r="3.2" fill="#ffd700"/>
-    </svg>
-
-    <svg id="planet-a" class="planet planet-a" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-        <defs>
-            <radialGradient id="planetABody" cx="35%" cy="30%" r="75%">
-                <stop offset="0%" stop-color="#d9d4ff"/>
-                <stop offset="45%" stop-color="#7b68ee"/>
-                <stop offset="100%" stop-color="#2a1f5c"/>
-            </radialGradient>
-            <linearGradient id="planetARing" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="rgba(255,215,0,0)"/>
-                <stop offset="50%" stop-color="rgba(255,215,0,0.9)"/>
-                <stop offset="100%" stop-color="rgba(255,215,0,0)"/>
-            </linearGradient>
-        </defs>
-        <ellipse class="planet-ring" cx="100" cy="100" rx="96" ry="24" fill="none" stroke="url(#planetARing)" stroke-width="8"/>
-        <circle cx="100" cy="100" r="54" fill="url(#planetABody)"/>
-    </svg>
-
-    <svg id="planet-b" class="planet planet-b" viewBox="0 0 140 140" aria-hidden="true" focusable="false">
-        <defs>
-            <radialGradient id="planetBBody" cx="35%" cy="30%" r="75%">
-                <stop offset="0%" stop-color="#fff3c4"/>
-                <stop offset="45%" stop-color="#ffd700"/>
-                <stop offset="100%" stop-color="#8a6600"/>
-            </radialGradient>
-            <linearGradient id="planetBRing" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="rgba(180,160,255,0)"/>
-                <stop offset="50%" stop-color="rgba(180,160,255,0.85)"/>
-                <stop offset="100%" stop-color="rgba(180,160,255,0)"/>
-            </linearGradient>
-        </defs>
-        <ellipse class="planet-ring" cx="70" cy="70" rx="66" ry="16" fill="none" stroke="url(#planetBRing)" stroke-width="6"/>
-        <circle cx="70" cy="70" r="36" fill="url(#planetBBody)"/>
-    </svg>
 
     <!-- Header -->
     <header class="header">
@@ -148,87 +88,196 @@
         <!-- Games -->
         <section class="games" id="games">
 
-            <!-- Featured Game -->
-            <div class="featured-game">
-                <div class="game-header">
-                    <img src="https://play-lh.googleusercontent.com/iTvFOL73iKhjRxq0T13902Wvml2hCebd9dQasygpATqHUkNVqXw1YIcuEMvdY3ntUEw4RLyZdJgI9QXgS0otJw=w480-h960" alt="Golden Soul Icon">
-                    <h2>Golden Soul</h2>
-                </div>
+            <!-- Icon strip: every game at a glance, links to its card -->
+            <nav class="games-strip" aria-label="All games">
+                <a href="#game-golden-soul" title="Golden Soul"><img src="https://play-lh.googleusercontent.com/iTvFOL73iKhjRxq0T13902Wvml2hCebd9dQasygpATqHUkNVqXw1YIcuEMvdY3ntUEw4RLyZdJgI9QXgS0otJw=w480-h960" alt="Golden Soul" loading="lazy"></a>
+                <a href="#game-lemon-or-gem" title="Lemon or Gem"><img src="https://play-lh.googleusercontent.com/OgYi-O1xFigw7N9WrkG5nl7t_Bykgp2Go4PxX1f4GI_8ZNhV4d4vMxvcRXo6YEO2vMG4OBPt_fQIXWi9Picmwh0=w240-h480" alt="Lemon or Gem" loading="lazy"></a>
+                <a href="#game-brix" title="BRIX! Bricker 3D"><img src="https://play-lh.googleusercontent.com/qwHutJollyf91DgI437MNvXN0nNVNwj-L3MubcT_cl0x7nARQPN9H3KPYEasHZH5ppZbSgDyOkK9VTX9JHKrcDo=w240-h480" alt="BRIX! Bricker 3D" loading="lazy"></a>
+                <a href="#game-pawline" title="Pawline"><img src="https://play-lh.googleusercontent.com/YwEQEngwAl-zv5yGmiXCM6n8oFSWxZtSAfqkSVh2oIzQXUsv1gfccSeg2JBsWuHGwU_3nlFMFJb9uQRWnRMw=w240-h480" alt="Pawline" loading="lazy"></a>
+                <a href="#game-cat-pat-what" title="Cat! Pat! What?"><img src="https://play-lh.googleusercontent.com/ckClMXiVfhg5_LhBwahbOnjXZ3EbS0fbYySeexGSwHAp3EFq_WoabfcZmWgOxuU4STr3h4AA8lmSSCN55gxmbAQ=w240-h480" alt="Cat! Pat! What?" loading="lazy"></a>
+                <a href="#game-fizz-water-sort" title="Fizz Water Sort"><img src="https://play-lh.googleusercontent.com/HSZvsTE9kee0Z-veYE1zAGemh_YvnHUJHVMw3z8XVFJb0er79JsSKWDGOfE6S4C20GTnIFSMNbjUNuo3MICuBw=w240-h480" alt="Fizz Water Sort" loading="lazy"></a>
+                <a href="#game-potion-craft" title="Potion Craft"><img src="https://play-lh.googleusercontent.com/-dTmS44zG5AkopwVec-cuLyOEZ0gziWcKwwbIOp5t3MGfm1oLQpcdTMBtzageTZq1hUqA5NLN1ts_umItSK13w=w240-h480" alt="Potion Craft" loading="lazy"></a>
+            </nav>
 
-                <div class="carousel-container">
-                    <div class="carousel-track" id="carousel-track">
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/cd1hkx2wunryaz6hon7ZM-L05PI-WrTWgqg_xlVYeYN20N4nrsreixSoh0e4rxhBa-oh=w1052-h592" alt="Golden Soul screenshot 1"></div>
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/m3zrQJurebPhJOngMb-CbPkQ2h8HHdvFBBdxhyxqOncNB2In1sL4j_1gTLVi960uDO6i=w1052-h592" alt="Golden Soul screenshot 2"></div>
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/sHex5SbLeKKI-CxneqzYoWuBx6HSpEm4B3xRPvm2gfTM7kVStRHJKKlgXT3KerECA0Qt=w1052-h592" alt="Golden Soul screenshot 3"></div>
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/9dGY7IeJx8TojmcLaXBxTZvQgFbYJJXNlLy0V9Q1P_nBSRe-49RBLyyC949n_KKJuA=w1052-h592" alt="Golden Soul screenshot 4"></div>
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/FOaPC4JAmIQ-HxgFaxS_WCdVHlozp3-cnuoENw41l1bWoMbTLS6i0LLT_WjA-WitQgE=w1052-h592" alt="Golden Soul screenshot 5"></div>
-                        <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/yTydUwbCr6p2yEvReb1Z4uLen9laDDUItE1Vh40aVZGMY3QJW3GzGOFn3gY9BshvAuA=w1052-h592" alt="Golden Soul screenshot 6"></div>
+            <!-- Flagship: Golden Soul -->
+            <article class="app-card app-card--featured" id="game-golden-soul">
+                <div class="app-card__bg" style="background-image:url('https://play-lh.googleusercontent.com/cd1hkx2wunryaz6hon7ZM-L05PI-WrTWgqg_xlVYeYN20N4nrsreixSoh0e4rxhBa-oh=w1052-h592')" aria-hidden="true"></div>
+                <div class="app-card__head">
+                    <img class="app-card__icon" src="https://play-lh.googleusercontent.com/iTvFOL73iKhjRxq0T13902Wvml2hCebd9dQasygpATqHUkNVqXw1YIcuEMvdY3ntUEw4RLyZdJgI9QXgS0otJw=w480-h960" alt="Golden Soul icon">
+                    <div>
+                        <p class="app-card__label">★ Legend</p>
+                        <h2 class="app-card__title">Golden Soul</h2>
+                        <p class="app-card__genre">Story Adventure</p>
                     </div>
                 </div>
-
-                <div class="store-buttons">
-                    <a class="store-btn" href="https://apps.apple.com/us/app/golden-soul/id6499178439" target="_blank">App Store</a>
-                    <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.Lexuslight.Goldensoul" target="_blank">Google Play</a>
-                    <a class="store-btn" href="https://store.steampowered.com/app/3410120/Golden_Soul" target="_blank">Steam</a>
+                <div class="app-card__featured-body">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carousel-track">
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/cd1hkx2wunryaz6hon7ZM-L05PI-WrTWgqg_xlVYeYN20N4nrsreixSoh0e4rxhBa-oh=w1052-h592" alt="Golden Soul screenshot 1"></div>
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/m3zrQJurebPhJOngMb-CbPkQ2h8HHdvFBBdxhyxqOncNB2In1sL4j_1gTLVi960uDO6i=w1052-h592" alt="Golden Soul screenshot 2"></div>
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/sHex5SbLeKKI-CxneqzYoWuBx6HSpEm4B3xRPvm2gfTM7kVStRHJKKlgXT3KerECA0Qt=w1052-h592" alt="Golden Soul screenshot 3"></div>
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/9dGY7IeJx8TojmcLaXBxTZvQgFbYJJXNlLy0V9Q1P_nBSRe-49RBLyyC949n_KKJuA=w1052-h592" alt="Golden Soul screenshot 4"></div>
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/FOaPC4JAmIQ-HxgFaxS_WCdVHlozp3-cnuoENw41l1bWoMbTLS6i0LLT_WjA-WitQgE=w1052-h592" alt="Golden Soul screenshot 5"></div>
+                            <div class="carousel-item"><img src="https://play-lh.googleusercontent.com/yTydUwbCr6p2yEvReb1Z4uLen9laDDUItE1Vh40aVZGMY3QJW3GzGOFn3gY9BshvAuA=w1052-h592" alt="Golden Soul screenshot 6"></div>
+                        </div>
+                    </div>
+                    <div class="app-card__text">
+                        <p class="app-card__tagline">Fall into a magical abyss. Come back with a soul that isn't yours.</p>
+                        <p class="app-card__desc">Half a century in the abyss has killed your soul. A mysterious magician grants you a Golden Soul — a magical fake that keeps you going, but with no emotions and no blood. A lore-driven story game with rich characters, about what it takes to become real again.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/us/app/golden-soul/id6499178439" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.Lexuslight.Goldensoul" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--steam" href="https://store.steampowered.com/app/3410120/Golden_Soul" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="15" cy="9" r="3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="2.2" fill="currentColor"/><path d="M8.5 15.5 15 9" stroke="currentColor" stroke-width="2"/></svg><span>Steam</span></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- More Games -->
-            <div class="more-games">
-                <h2>Games</h2>
+            <!-- All other games -->
+            <div class="games-group">
+                <div class="games-group__head">
+                    <h2>Games</h2>
+                    <span class="games-group__count">06</span>
+                </div>
                 <div class="games-grid">
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/OgYi-O1xFigw7N9WrkG5nl7t_Bykgp2Go4PxX1f4GI_8ZNhV4d4vMxvcRXo6YEO2vMG4OBPt_fQIXWi9Picmwh0=w480-h960" alt="Lemon or Gem: Car Dealer Sim">
-                        <h3>Lemon or Gem</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.CarFlipper&hl=en" target="_blank">Google Play</a>
+                    <article class="app-card" id="game-lemon-or-gem">
+                        <div class="app-card__bg" style="background-image:url('https://play-lh.googleusercontent.com/f9qE3m9itnBEN9rN-W3Gne9qc_a12ORwM-u44ECBuraMf_91-1SPpTNd5KYMhF_PeW8bT6SjvGxCHYKPL9-h770=w392-h696')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/OgYi-O1xFigw7N9WrkG5nl7t_Bykgp2Go4PxX1f4GI_8ZNhV4d4vMxvcRXo6YEO2vMG4OBPt_fQIXWi9Picmwh0=w240-h480" alt="Lemon or Gem: Car Dealer Sim icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--hit">🔥 Hit!</p>
+                                <h3 class="app-card__title">Lemon or Gem</h3>
+                                <p class="app-card__genre">Car Dealer Sim</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://play-lh.googleusercontent.com/f9qE3m9itnBEN9rN-W3Gne9qc_a12ORwM-u44ECBuraMf_91-1SPpTNd5KYMhF_PeW8bT6SjvGxCHYKPL9-h770=w392-h696" alt="Lemon or Gem screenshot 1" loading="lazy">
+                            <img src="https://play-lh.googleusercontent.com/oIKV_Ul8H4zdCItvSu45uLttFzWM7dsna6uz8kJzEplP_Iirq7fQsji6SRH6FZPPLuuAlwGXHOV5S6AMHO2C=w392-h696" alt="Lemon or Gem screenshot 2" loading="lazy">
+                            <img src="https://play-lh.googleusercontent.com/TdEk1nL_oM5CGTKGXUbS0SNW3t70blzG1h3jZFb5q1s6nt5G7Ws_1q-j38NKymvyZQf-dRit5iADn6kwpbaYq4c=w392-h696" alt="Lemon or Gem screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">Clean car, half price, smiling seller. Something is off.</p>
+                        <p class="app-card__desc">A car-flipping sim where instinct is your real currency. Read the listing, pay for an inspection or gamble blind — one look under the hood separates the deal of your life from a loss that wipes out your garage.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.CarFlipper&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/us/app/lemon-or-gem-car-dealer-sim/id6813228672" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/YwEQEngwAl-zv5yGmiXCM6n8oFSWxZtSAfqkSVh2oIzQXUsv1gfccSeg2JBsWuHGwU_3nlFMFJb9uQRWnRMw=w480-h960" alt="Pawline: Draw to Save the Dog">
-                        <h3>Pawline</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.SaveTheDog&hl=en" target="_blank">Google Play</a>
+                    <article class="app-card" id="game-brix">
+                        <div class="app-card__bg" style="background-image:url('https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/49/f7/6a/49f76a1c-83f2-cc78-e3a4-8b5217026a4c/1Eng.png/392x696bb.jpg')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/qwHutJollyf91DgI437MNvXN0nNVNwj-L3MubcT_cl0x7nARQPN9H3KPYEasHZH5ppZbSgDyOkK9VTX9JHKrcDo=w240-h480" alt="BRIX: Brick Building Blocks 3D icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--hit">🔥 Hit!</p>
+                                <h3 class="app-card__title">BRIX! Bricker 3D</h3>
+                                <p class="app-card__genre">Building &amp; Collecting</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/49/f7/6a/49f76a1c-83f2-cc78-e3a4-8b5217026a4c/1Eng.png/392x696bb.jpg" alt="BRIX! Bricker 3D screenshot 1" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/da/c9/40/dac940c1-ff54-dec9-d7a3-3db7a540d01e/2Eng.png/392x696bb.jpg" alt="BRIX! Bricker 3D screenshot 2" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0d/a9/60/0da960bf-8552-9040-852b-d7feae9fc0e4/3Eng.png/392x696bb.jpg" alt="BRIX! Bricker 3D screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">Build, collect, unwind.</p>
+                        <p class="app-card__desc">A design-driven brick game with carefully crafted, collectible creations — blending creativity, memes and modern aesthetics. A mindful break that keeps your hands busy and your head clear.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.BrixBricker&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/us/app/brix-constructor-3d/id6751990536" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/qwHutJollyf91DgI437MNvXN0nNVNwj-L3MubcT_cl0x7nARQPN9H3KPYEasHZH5ppZbSgDyOkK9VTX9JHKrcDo=w480-h960" alt="BRIX - Creative Bricker">
-                        <h3>BRIX! Bricker 3D</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.BrixBricker&hl=en" target="_blank">Google Play</a>
-                            <a class="store-btn" href="https://apps.apple.com/us/app/brix-constructor-3d/id6751990536" target="_blank">App Store</a>
+                    <article class="app-card" id="game-pawline">
+                        <div class="app-card__bg" style="background-image:url('https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/4f/37/c54f3749-10d0-f852-0368-1f2e4c77c23a/00_dogs.png/392x696bb.jpg')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/YwEQEngwAl-zv5yGmiXCM6n8oFSWxZtSAfqkSVh2oIzQXUsv1gfccSeg2JBsWuHGwU_3nlFMFJb9uQRWnRMw=w240-h480" alt="Pawline: Draw to Save the Dog icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--new">● New</p>
+                                <h3 class="app-card__title">Pawline</h3>
+                                <p class="app-card__genre">Physics Puzzle</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/c5/4f/37/c54f3749-10d0-f852-0368-1f2e4c77c23a/00_dogs.png/392x696bb.jpg" alt="Pawline screenshot 1" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e8/a7/7c/e8a77c65-c4d6-1cbc-1fea-f9148d822a8d/01_draw.png/392x696bb.jpg" alt="Pawline screenshot 2" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/e6/70/ed/e670ed4a-c6e7-afef-e335-cdc9106021a5/02_saw.png/392x696bb.jpg" alt="Pawline screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">A puppy is falling. Below him: spikes. Draw the line that saves him.</p>
+                        <p class="app-card__desc">Pick a material, draw up to three lines, press GO and let real physics decide. Restarts are instant and your lines stay on the field — so you fix the plan instead of starting from scratch.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.SaveTheDog&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/us/app/pawline-save-the-dog/id6813229785" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/ckClMXiVfhg5_LhBwahbOnjXZ3EbS0fbYySeexGSwHAp3EFq_WoabfcZmWgOxuU4STr3h4AA8lmSSCN55gxmbAQ=w480-h960" alt="Cat! Pat! What?">
-                        <h3>Cat! Pat! What?</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.WordCatPatWhat&hl=en" target="_blank">Google Play</a>
-                            <a class="store-btn" href="https://apps.apple.com/us/app/word-mystery-cat-pat-what/id6717603714" target="_blank">App Store</a>
+                    <article class="app-card" id="game-cat-pat-what">
+                        <div class="app-card__bg" style="background-image:url('https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7c/99/25/7c992526-f547-191d-e956-c976b40dc265/5cb1de31-fa80-4cce-9298-88649f71a6b6_1Eng.png/392x696bb.jpg')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/ckClMXiVfhg5_LhBwahbOnjXZ3EbS0fbYySeexGSwHAp3EFq_WoabfcZmWgOxuU4STr3h4AA8lmSSCN55gxmbAQ=w240-h480" alt="Word Quiz! Cat! Pat! What? icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--classic">◆ Classic</p>
+                                <h3 class="app-card__title">Cat! Pat! What?</h3>
+                                <p class="app-card__genre">Word Puzzle</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7c/99/25/7c992526-f547-191d-e956-c976b40dc265/5cb1de31-fa80-4cce-9298-88649f71a6b6_1Eng.png/392x696bb.jpg" alt="Cat! Pat! What? screenshot 1" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/0d/e8/6f/0de86fab-ff12-8d1e-17d5-5ccb1f5133c3/411b9e84-9b71-474c-bff0-287893fbe452_2Eng.png/392x696bb.jpg" alt="Cat! Pat! What? screenshot 2" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/06/62/7b/06627b8e-848b-f736-a160-2e35eebf8dde/6e1b50c7-a1ae-4049-b90a-9718f2f06016_3Eng.png/392x696bb.jpg" alt="Cat! Pat! What? screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">Word puzzles with a mysterious cat as your guide.</p>
+                        <p class="app-card__desc">Thousands of words across categories — nature, cats, dogs, dishes, cars, mythology, history and more. Every level is a new test for your logic and vocabulary.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.WordCatPatWhat&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/us/app/word-mystery-cat-pat-what/id6717603714" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/HSZvsTE9kee0Z-veYE1zAGemh_YvnHUJHVMw3z8XVFJb0er79JsSKWDGOfE6S4C20GTnIFSMNbjUNuo3MICuBw=w480-h960" alt="Fizz Water Sort">
-                        <h3>Fizz Water Sort</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.FizzWaterSort&hl=en" target="_blank">Google Play</a>
-                            <a class="store-btn" href="https://apps.apple.com/ml/app/relax-zone-fizzy-color-sort/id6737144352" target="_blank">App Store</a>
+                    <article class="app-card" id="game-fizz-water-sort">
+                        <div class="app-card__bg" style="background-image:url('https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/25/b8/01/25b801ac-867d-87d8-54d8-2d6ef6bce75b/1Eng.png/392x696bb.jpg')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/HSZvsTE9kee0Z-veYE1zAGemh_YvnHUJHVMw3z8XVFJb0er79JsSKWDGOfE6S4C20GTnIFSMNbjUNuo3MICuBw=w240-h480" alt="Fizz Water Sort - Color Puzzle icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--classic">◆ Classic</p>
+                                <h3 class="app-card__title">Fizz Water Sort</h3>
+                                <p class="app-card__genre">Color Sort</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/25/b8/01/25b801ac-867d-87d8-54d8-2d6ef6bce75b/1Eng.png/392x696bb.jpg" alt="Fizz Water Sort screenshot 1" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/24/2c/d3/242cd303-a230-26a5-808f-7695839e9768/3Eng.png/392x696bb.jpg" alt="Fizz Water Sort screenshot 2" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/bf/cd/ba/bfcdba54-17b3-fd6e-2fbf-a4283e54486c/4Eng.png/392x696bb.jpg" alt="Fizz Water Sort screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">Color sorting with a fizzy twist.</p>
+                        <p class="app-card__desc">Hundreds of levels that are easy to learn and hard to master, with soothing sounds, stylish visuals and a rank to climb. No timers, no pressure.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.FizzWaterSort&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/ml/app/relax-zone-fizzy-color-sort/id6737144352" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
-                    <div class="game-card">
-                        <img src="https://play-lh.googleusercontent.com/-dTmS44zG5AkopwVec-cuLyOEZ0gziWcKwwbIOp5t3MGfm1oLQpcdTMBtzageTZq1hUqA5NLN1ts_umItSK13w=w480-h960" alt="Potion Craft">
-                        <h3>Potion Craft</h3>
-                        <div class="store-buttons">
-                            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.PotionCraft&hl=en" target="_blank">Google Play</a>
-                            <a class="store-btn" href="https://apps.apple.com/tw/app/potion-sort-pixel-color-sort/id6737445364" target="_blank">App Store</a>
+                    <article class="app-card" id="game-potion-craft">
+                        <div class="app-card__bg" style="background-image:url('https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/52/c7/bb/52c7bbe1-2525-4d75-58c9-6e037e5a5ae8/1Eng.png/392x696bb.jpg')" aria-hidden="true"></div>
+                        <div class="app-card__head">
+                            <img class="app-card__icon" src="https://play-lh.googleusercontent.com/-dTmS44zG5AkopwVec-cuLyOEZ0gziWcKwwbIOp5t3MGfm1oLQpcdTMBtzageTZq1hUqA5NLN1ts_umItSK13w=w240-h480" alt="Potion Craft - Water Sort Game icon" loading="lazy">
+                            <div>
+                                <p class="app-card__label app-card__label--classic">◆ Classic</p>
+                                <h3 class="app-card__title">Potion Craft</h3>
+                                <p class="app-card__genre">Pixel Color Sort</p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="app-card__shots">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/52/c7/bb/52c7bbe1-2525-4d75-58c9-6e037e5a5ae8/1Eng.png/392x696bb.jpg" alt="Potion Craft screenshot 1" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/11/7c/d5/117cd53e-d49e-a703-7681-137989d176e0/2Eng.png/392x696bb.jpg" alt="Potion Craft screenshot 2" loading="lazy">
+                            <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/57/a7/a0/57a7a0a0-d039-e70d-c1f1-f0c6e60b12d5/3Eng.png/392x696bb.jpg" alt="Potion Craft screenshot 3" loading="lazy">
+                        </div>
+                        <p class="app-card__tagline">Pixel potions. Sorted.</p>
+                        <p class="app-card__desc">The color-sort puzzle reimagined as an alchemist&#x27;s shelf: hundreds of levels of pixel-art potions, rising difficulty and a rank system to level up.</p>
+                        <div class="app-card__ctas">
+                            <a class="store-btn store-btn--gp" href="https://play.google.com/store/apps/details?id=com.FizzStarLab.PotionCraft&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 2.6c-.3.2-.5.6-.5 1.1v16.6c0 .5.2.9.5 1.1L14 12 4.5 2.6zm10.6 10.5-2.3 2.3L6.2 21.9l10.5-6zm0-2.2L6.2 2.1l6.6 6.5 2.3 2.3zm1.9 3.9 2.7-1.5c.8-.5.8-1.6 0-2.1l-2.7-1.5L14.6 12l2.4 2.3z"/></svg><span>Google Play</span></a>
+                            <a class="store-btn store-btn--as" href="https://apps.apple.com/tw/app/potion-sort-pixel-color-sort/id6737445364" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>App Store</span></a>
+                        </div>
+                    </article>
 
                 </div>
             </div>
@@ -352,6 +401,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/cosmos.js"></script>
+    <script src="js/monstera.js"></script>
     <script src="js/fanarts.js"></script>
 
 </body>

@@ -1,0 +1,54 @@
+/* ── Monstera leaves along the page edges (js/monstera.js, ported from LexusLight) ──
+   Absolute against the position:relative body so it covers the full page
+   height. z-index 0 + placed right after #cosmic-canvas in the DOM: above the
+   starfield, behind main/footer (z-index 1). pointer-events:none — the script
+   hit-tests leaves itself on window, so the layer never steals clicks. */
+body { position: relative; }
+
+.monstera-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.monstera-leaf {
+    position: absolute;
+    will-change: transform;
+    overflow: visible;
+}
+
+body.monstera-hover { cursor: pointer; }
+
+.monstera-spark {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    margin: -3px 0 0 -3px;
+    box-shadow: 0 0 6px currentColor;
+    animation: monsteraSpark .7s ease-out forwards;
+}
+
+@keyframes monsteraSpark {
+    0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(.3); opacity: 0; }
+}
+
+/* Section backgrounds were ~75–82% opaque, which hid the leaves behind a
+   murky film. Thinner tints here (same hues) let the jungle show through;
+   cards keep their original, more solid surfaces so text stays readable. */
+.hero {
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(123, 104, 238, 0.16) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+        rgba(14, 18, 48, 0.42);
+}
+.games,
+.fanarts { background: rgba(26, 29, 69, 0.4); }
+.projects { background: rgba(20, 24, 56, 0.4); }
+.music {
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(123, 104, 238, 0.12) 0%, transparent 50%),
+        rgba(14, 18, 48, 0.42);
+}
