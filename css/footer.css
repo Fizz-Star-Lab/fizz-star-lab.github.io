@@ -61,3 +61,14 @@
         gap: 16px;
     }
 }
+
+.footer-legal {
+    color: var(--text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.footer-legal:hover {
+    color: var(--accent-gold);
+}
